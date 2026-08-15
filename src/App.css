@@ -172,6 +172,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
   border: 1px solid #e5e7eb;
 }
@@ -186,19 +187,40 @@
   font-size: 13px;
 }
 
-.location-button {
+.location-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.location-button,
+.current-location-button {
   border: none;
   padding: 10px 16px;
   border-radius: 20px;
-  background: #172554;
-  color: white;
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
 }
 
+.location-button {
+  background: #172554;
+  color: white;
+}
+
 .location-button:hover {
   opacity: 0.9;
+}
+
+.current-location-button {
+  border: 1px solid #172554;
+  background: white;
+  color: #172554;
+}
+
+.current-location-button:hover {
+  background: #eef2ff;
 }
 
 .map-wrapper {
@@ -489,7 +511,7 @@
   color: #6b7280;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .gis-layout {
     grid-template-columns: 1fr;
   }
@@ -507,7 +529,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .main-content {
     padding: 12px;
   }
@@ -527,6 +549,10 @@
   .location-bar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+  }
+
+  .location-actions {
+    width: 100%;
+    justify-content: flex-start;
   }
 }

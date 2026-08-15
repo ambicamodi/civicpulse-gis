@@ -40,6 +40,7 @@ function createIcon(priority) {
   });
 }
 
+/* Detects manual clicks on the map */
 function LocationPicker({ onSelect, selecting }) {
   useMapEvents({
     click: (e) => {
@@ -55,6 +56,65 @@ function LocationPicker({ onSelect, selecting }) {
   return null;
 }
 
+/* Moves the map to a selected/current location */
+function MapController({ location }) {
+  const map = useMap();
+
+  if (location) {
+    map.setView([location.lat, location.lng], 15);
+  }
+
+  return null;
+}
+
+/* Browser current-location button */
+function CurrentLocationButton({ onLocationFound }) {
+  const handleLocation = () => {
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by this browser.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const location = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        onLocationFound(location);
+      },
+      (error) => {
+        if (error.code === error.PERMISSION_DENIED) {
+          alert("Location permission was denied.");
+        } else if (error.code === error.POSITION_UNAVAILABLE) {
+          alert("Your location is currently unavailable.");
+        } else if (error.code === error.TIMEOUT) {
+          alert("Location request timed out.");
+        } else {
+          alert("Unable to get your current location.");
+        }
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+      }
+    );
+  };
+
+  return (
+    <button
+      type="button"
+      className="current-location-button"
+      onClick={handleLocation}
+    >
+      ◎ Use My Location
+    </button>
+  );
+}
+
+/* Reset map to default view */
 function ResetMapButton() {
   const map = useMap();
 
@@ -73,6 +133,7 @@ function ResetMapButton() {
   );
 }
 
+/* Finds the 3 geographically closest issues */
 function getNearbyIssues(location, issues) {
   if (!location) return [];
 
@@ -278,17 +339,26 @@ function MapView() {
             </p>
           </div>
 
-          <button
-            type="button"
-            className="location-button"
-            onClick={() =>
-              setSelectingLocation(!selectingLocation)
-            }
-          >
-            {selectingLocation
-              ? "Click on Map"
-              : "📍 Select Location"}
-          </button>
+          <div className="location-actions">
+            <button
+              type="button"
+              className="location-button"
+              onClick={() =>
+                setSelectingLocation(!selectingLocation)
+              }
+            >
+              {selectingLocation
+                ? "Click on Map"
+                : "📍 Select Location"}
+            </button>
+
+            <CurrentLocationButton
+              onLocationFound={(location) => {
+                setSelectedLocation(location);
+                setSelectingLocation(false);
+              }}
+            />
+          </div>
         </div>
 
         {/* MAP */}
@@ -306,8 +376,13 @@ function MapView() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
+            {/* Automatically center map when location changes */}
+            <MapController location={selectedLocation} />
+
+            {/* Reset map */}
             <ResetMapButton />
 
+            {/* Manual location selection */}
             <LocationPicker
               selecting={selectingLocation}
               onSelect={(location) => {
@@ -432,7 +507,7 @@ function MapView() {
               </Marker>
             ))}
 
-            {/* SELECTED LOCATION */}
+            {/* SELECTED / CURRENT LOCATION */}
             {selectedLocation && (
               <Marker
                 position={[
@@ -461,6 +536,7 @@ function MapView() {
         {/* BOTTOM PANELS */}
         <div className="bottom-grid">
 
+          {/* SELECTED LOCATION */}
           <div className="info-card">
             <h3>Selected Location</h3>
 
@@ -480,12 +556,13 @@ function MapView() {
               </>
             ) : (
               <p className="muted">
-                Click "Select Location" and then choose
-                a point on the map.
+                Select a location or use your current
+                location to begin.
               </p>
             )}
           </div>
 
+          {/* NEARBY ISSUES */}
           <div className="info-card">
             <div className="card-heading">
               <h3>Nearby Issues</h3>
