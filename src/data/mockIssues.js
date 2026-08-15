@@ -1,0 +1,122 @@
+const mockIssues = [
+  {
+    id: "CIV-1024",
+    category: "Pothole",
+    description: "Large pothole near main road",
+    latitude: 19.0760,
+    longitude: 72.8777,
+    severity: 82,
+    priority: 86,
+    department: "Road Maintenance",
+    status: "PENDING",
+    reports_count: 4,
+    created_at: "2026-08-13T20:30:00"
+  },
+  {
+    id: "CIV-1025",
+    category: "Garbage",
+    description: "Garbage accumulation near market",
+    latitude: 19.0780,
+    longitude: 72.8790,
+    severity: 60,
+    priority: 65,
+    department: "Waste Management",
+    status: "ASSIGNED",
+    reports_count: 3,
+    created_at: "2026-08-13T18:20:00"
+  },
+  {
+    id: "CIV-1026",
+    category: "Streetlight",
+    description: "Streetlight not working",
+    latitude: 19.0735,
+    longitude: 72.8755,
+    severity: 45,
+    priority: 50,
+    department: "Electrical",
+    status: "PENDING",
+    reports_count: 2,
+    created_at: "2026-08-13T17:10:00"
+  },
+  {
+    id: "CIV-1027",
+    category: "Pothole",
+    description: "Road damaged with multiple potholes",
+    latitude: 19.0765,
+    longitude: 72.8780,
+    severity: 90,
+    priority: 92,
+    department: "Road Maintenance",
+    status: "IN_PROGRESS",
+    reports_count: 6,
+    created_at: "2026-08-13T15:40:00"
+  },
+  {
+    id: "CIV-1028",
+    category: "Drainage",
+    description: "Blocked drainage near residential area",
+    latitude: 19.0770,
+    longitude: 72.8785,
+    severity: 72,
+    priority: 75,
+    department: "Drainage",
+    status: "PENDING",
+    reports_count: 4,
+    created_at: "2026-08-13T14:25:00"
+  },
+  {
+    id: "CIV-1029",
+    category: "Garbage",
+    description: "Overflowing garbage bin",
+    latitude: 19.0745,
+    longitude: 72.8765,
+    severity: 52,
+    priority: 58,
+    department: "Waste Management",
+    status: "RESOLVED",
+    reports_count: 2,
+    created_at: "2026-08-13T12:30:00"
+  },
+  {
+  id: "CIV-1030",
+  category: "Pothole",
+  description: "Multiple potholes near intersection",
+  latitude: 19.0768,
+  longitude: 72.8778,
+  severity: 88,
+  priority: 90,
+  department: "Road Maintenance",
+  status: "PENDING",
+  reports_count: 5,
+  created_at: "2026-08-14T10:30:00"
+},
+{
+  id: "CIV-1031",
+  category: "Drainage",
+  description: "Blocked drainage near road",
+  latitude: 19.0772,
+  longitude: 72.8782,
+  severity: 75,
+  priority: 78,
+  department: "Drainage",
+  status: "ASSIGNED",
+  reports_count: 3,
+  created_at: "2026-08-14T11:00:00"
+},
+{
+  id: "CIV-1032",
+  category: "Pothole",
+  description: "Road damage near junction",
+  latitude: 19.0764,
+  longitude: 72.8784,
+  severity: 84,
+  priority: 85,
+  department: "Road Maintenance",
+  status: "PENDING",
+  reports_count: 4,
+  created_at: "2026-08-14T11:30:00"
+},
+];
+
+
+export default mockIssues;

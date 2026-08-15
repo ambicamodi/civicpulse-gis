@@ -1,0 +1,532 @@
+.app {
+  min-height: 100vh;
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  background: #172554;
+  color: white;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 4px 0 0;
+  opacity: 0.8;
+}
+
+.header-badge {
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #22c55e;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.main-content {
+  padding: 24px;
+}
+
+.gis-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.gis-sidebar {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #172554;
+}
+
+.filter-group {
+  margin-bottom: 16px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: white;
+  color: #1f2937;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #172554;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reset-button:hover {
+  opacity: 0.9;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 22px 0;
+}
+
+.legend h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.legend-item {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.legend-dot.high {
+  background: red;
+}
+
+.legend-dot.medium {
+  background: orange;
+}
+
+.legend-dot.low {
+  background: green;
+}
+
+.gis-main {
+  min-width: 0;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.stat-card {
+  background: white;
+  padding: 16px 18px;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.stat-card span {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.stat-card strong {
+  font-size: 28px;
+  color: #172554;
+}
+
+.location-bar {
+  background: white;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.location-bar strong {
+  font-size: 14px;
+}
+
+.location-bar p {
+  margin: 5px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.location-button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  background: #172554;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.location-button:hover {
+  opacity: 0.9;
+}
+
+.map-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.map-wrapper .leaflet-container {
+  border-radius: 16px;
+}
+
+.map-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 500;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.reset-map-button {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  z-index: 1000;
+  border: none;
+  padding: 9px 13px;
+  border-radius: 20px;
+  background: white;
+  color: #172554;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+.reset-map-button:hover {
+  background: #f8fafc;
+}
+
+.issue-popup {
+  min-width: 240px;
+  color: #1f2937;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.popup-id {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 3px;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #172554;
+  text-transform: capitalize;
+}
+
+.popup-priority {
+  padding: 5px 8px;
+  border-radius: 14px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.high-badge {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.medium-badge {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.low-badge {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.popup-description {
+  margin: 10px 0 14px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.popup-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.popup-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.popup-details span {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.popup-details strong {
+  font-size: 11px;
+  color: #334155;
+}
+
+.hotspot-popup {
+  min-width: 220px;
+}
+
+.hotspot-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #991b1b;
+  margin-bottom: 8px;
+}
+
+.hotspot-popup p {
+  margin: 0 0 14px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.hotspot-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.hotspot-stats div {
+  text-align: center;
+  padding: 8px 4px;
+  border-radius: 8px;
+  background: #fef2f2;
+}
+
+.hotspot-stats strong {
+  display: block;
+  font-size: 17px;
+  color: #991b1b;
+}
+
+.hotspot-stats span {
+  display: block;
+  margin-top: 3px;
+  font-size: 8px;
+  color: #7f1d1d;
+}
+
+.hotspot-note {
+  padding: 8px;
+  border-radius: 8px;
+  background: #fff1f2;
+  color: #9f1239;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.info-card {
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.info-card h3 {
+  margin-top: 0;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.coordinate {
+  font-family: monospace;
+  margin-bottom: 5px;
+}
+
+.success-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 9px;
+  border-radius: 20px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-heading h3 {
+  margin: 0;
+  color: #172554;
+}
+
+.card-heading span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.nearby-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.nearby-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 12px;
+  margin-bottom: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.nearby-item:last-child {
+  margin-bottom: 0;
+}
+
+.nearby-item strong {
+  font-size: 14px;
+  color: #172554;
+}
+
+.nearby-item p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.nearby-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.priority-badge {
+  padding: 4px 7px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.status-text {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+@media (max-width: 900px) {
+  .gis-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .gis-sidebar {
+    position: static;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 12px;
+  }
+
+  .header {
+    padding: 15px;
+  }
+
+  .header-badge {
+    display: none;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .location-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
